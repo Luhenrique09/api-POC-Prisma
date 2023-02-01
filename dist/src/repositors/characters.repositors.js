@@ -38,7 +38,20 @@ import prisma from "../database/db.js";
 export function findAllRep() {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
-            return [2 /*return*/, prisma.characters.findMany()];
+            return [2 /*return*/, prisma.characters.findMany({
+                    select: {
+                        id: true,
+                        name: true,
+                        level: true,
+                        transformations: true,
+                        image: true,
+                        breed: {
+                            select: {
+                                breedName: true
+                            }
+                        }
+                    }
+                })];
         });
     });
 }
@@ -57,6 +70,18 @@ export function findByIdRep(id) {
             return [2 /*return*/, prisma.characters.findUnique({
                     where: {
                         id: id
+                    },
+                    select: {
+                        id: true,
+                        name: true,
+                        level: true,
+                        transformations: true,
+                        image: true,
+                        breed: {
+                            select: {
+                                breedName: true
+                            }
+                        }
                     }
                 })];
         });

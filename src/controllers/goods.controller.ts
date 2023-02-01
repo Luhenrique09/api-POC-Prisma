@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
-import { findAllGoodsRep } from "../repositors/goods.repositor.js"
+import { findAllgoodsRep } from "../repositors/goods.repositor.js"
 
-export async function findAllGoods(req: Request, res: Response ) {
+export async function findAllgoods(req: Request, res: Response ) {
     try {
-        const result = await findAllGoodsRep();
+        const result = await findAllgoodsRep();
         
         res.send(result).status(200);
 

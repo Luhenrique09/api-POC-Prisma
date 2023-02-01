@@ -1,5 +1,5 @@
 import prisma from "../database/db.js";
-import { Characters } from "../protocols/protocols.js";
+import { CharacterFind, Characters } from "../protocols/protocols.js";
 
 export async function findAllRep() {
     return  prisma.characters.findMany({
@@ -13,20 +13,21 @@ export async function findAllRep() {
           select: {
             breedName: true
           }
-        }
+        },
+       
       }
     });
 
 }
 
 
-export async function createRep(characters: Characters) {
+export async function createRep(characters: Characters) : Promise<Characters>{
   return prisma.characters.create({
     data: characters
   });
 } 
 
-export async function findByIdRep(id:number) {
+export async function findByIdRep(id:number) : Promise<CharacterFind> {
    return prisma.characters.findUnique({
     where: {
         id: id

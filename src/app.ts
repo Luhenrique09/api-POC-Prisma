@@ -1,7 +1,7 @@
 import express from "express";
 import { add, findAll, findById, remove, update } from "./controllers/characters.controller.js";
 import { findAllBreed} from "./controllers/breed.controller.js";
-import { findAllGoods } from "./controllers/goods.controller.js";
+import { findAllgoods } from "./controllers/goods.controller.js";
 
 const app = express();
 
@@ -15,7 +15,7 @@ app.delete('/characters/:id', remove);
 
 app.get('/breed', findAllBreed)
 
-app.get('/goods', findAllGoods)
+app.get('/goods', findAllgoods)
 
 
 app.listen(4000, () => {

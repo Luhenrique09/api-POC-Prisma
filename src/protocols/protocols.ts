@@ -13,3 +13,14 @@ export type Breed = {
 }
 
 export type Characters = Omit<CharactersEntity, "id">
+
+export type CharacterFind = {
+id: number,
+name: string,
+level: number,
+transformations: number,
+image: string,
+breed: {
+    breedName: string,
+}
+}
